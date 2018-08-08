@@ -1,37 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project Kazufy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
 
-            .container {
-                margin-top: 50px;
-            }
-    
-            .form-control.form-control-lg {
-                margin-top: 50px;
-            }
-    
-            .btn-lg.btn-block {
-                margin-top: 20px;
-            }
-        </style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-control.form-control-lg {
+            margin-top: 50px;
+        }
+
+        .btn-lg.btn-block {
+            margin-top: 20px;
+        }
+
+        .rcorners1 {
+            display: inline;
+            border-radius: 5px;
+            background: dimgrey;
+            color: white;
+            font-weight: bold;
+            padding: 7px;
+        }
+    </style>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap: JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <h1>Search</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Kazufy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Search<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="albums.html">Albums</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center text-secondary">Project Kazufy</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input class="form-control form-control-lg" type="text" placeholder="Artists / bands ...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success btn btn-primary btn-lg btn-block">Search</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2%">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="artist1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" style="display: inline">Green Day</h5>
+                        <p class="border rounded" style="display: inline">6</p>
+                        <p class="card-text">Punk rock</p>
+                        <a href="#" class="btn btn-primary">Albums</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="artist2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" style="display: inline">Linkin Park</h5>
+                        <p class="border rounded" style="display: inline">15</p>
+                        <p class="card-text">Alternative rock</p>
+                        <a href="#" class="btn btn-primary">Albums</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="artist3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" style="display: inline">Sum 41</h5>
+                        <p class="border rounded" style="display: inline">13</p>
+                        <p class="card-text">Punk rock</p>
+                        <a href="#" class="btn btn-primary">Albums</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
