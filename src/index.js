@@ -2,12 +2,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import './style.scss'
+
 import Nav from './components/Nav';
 import Search from './components/Search';
 import Bands from './components/Bands';
 
-// import ArtistHeader from './components/ArtistHeader';
-// import ArtistPopularAlbum from './components/ArtistPopularAlbum';
+import ArtistHeader from './components/ArtistHeader';
+import ArtistPopularAlbum from './components/ArtistPopularAlbum';
 
 const SearchPage = () => {
   return (
@@ -19,18 +21,13 @@ const SearchPage = () => {
 }
 
 const ArtistPage = () => {
-  return (
-    <h1>Artist</h1>
-  )
-  // return (
-  //   <div>
-  //     <ArtistHeader/>
-  //     <ArtistPopularAlbum/>
-  //   </div>
-  // )
+   return (
+     <div>
+       <ArtistHeader/>
+       <ArtistPopularAlbum/>
+     </div>
+   )
 }
-
-
 
 
 class App extends React.Component {
