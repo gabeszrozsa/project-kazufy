@@ -1,18 +1,50 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Nav from './components/Nav';
 import Search from './components/Search';
 import Artists from './components/Artists';
 
+// import ArtistHeader from './components/ArtistHeader';
+// import ArtistPopularAlbum from './components/ArtistPopularAlbum';
+
+const SearchPage = () => {
+  return (
+    <div>
+      <Search/>
+      <Artists/>
+    </div>
+  )
+}
+
+const ArtistPage = () => {
+  return (
+    <h1>Artist</h1>
+  )
+  // return (
+  //   <div>
+  //     <ArtistHeader/>
+  //     <ArtistPopularAlbum/>
+  //   </div>
+  // )
+}
+
+
+
+
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Nav/>
-        <Search/>
-        <Artists/>
-      </div>
+      <Router>
+        <div>
+          <Nav/>
+          <Switch>
+            <Route path="/" exact component={SearchPage} />
+            <Route path="/artist" component={ArtistPage} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
