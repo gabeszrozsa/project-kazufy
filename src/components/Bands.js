@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Artists = () => {
+const Bands = () => {
     return (
         <div className="container">
             <div className="row">
@@ -48,4 +48,4 @@ const Artists = () => {
     )
 }
 
-export default Artists;
+export default Bands;
