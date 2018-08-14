@@ -6,12 +6,16 @@ import './style.scss'
 
 import Nav from './components/Nav';
 import Search from './components/Search';
+import IndexPage from './components/IndexPage';
 import Bands from './components/Bands';
 
 import ArtistHeader from './components/ArtistHeader';
 import ArtistPopularAlbum from './components/ArtistPopularAlbum';
 
 const SearchPage = () => {
+  const bearer = sessionStorage.getItem('spotify-bearer');
+  console.log('search: ', bearer);
+
   return (
     <div>
       <Search/>
@@ -37,7 +41,8 @@ class App extends React.Component {
         <div>
           <Nav/>
           <Switch>
-            <Route path="/" exact component={SearchPage} />
+            <Route path="/" exact component={IndexPage} />
+            <Route path="/search" exact component={SearchPage} />
             <Route path="/artist" component={ArtistPage} />
           </Switch>
         </div>
