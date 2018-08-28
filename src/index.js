@@ -13,9 +13,6 @@ import ArtistHeader from './components/ArtistHeader';
 import ArtistPopularAlbum from './components/ArtistPopularAlbum';
 
 const SearchPage = () => {
-  const bearer = sessionStorage.getItem('spotify-bearer');
-  console.log('search: ', bearer);
-
   return (
     <div>
       <Search/>
