@@ -1,9 +1,8 @@
 import React from 'react';
 
 const BandItem = (props) => {
-  console.log(props.band);
-  const imgUrl = props.band.images.length > 0 ? props.band.images[0].url : false;
-  const imgComp = (imgUrl) ? <img className="card-img-top" src={imgUrl} alt="Card image cap"/> : false;
+  const imgUrl = props.band.images.length > 0 ? props.band.images[0].url : 'default_band.jpg';
+  const imgComp = <img className="card-img-top" src={imgUrl} alt="Card image cap"/>;
 
   return (
     <div className="col">
@@ -11,8 +10,8 @@ const BandItem = (props) => {
           {imgComp}
             <div className="card-body">
                 <h5 className="card-title">
-                    {props.band.name}
-                    <a href="#" className="badge badge-dark">{props.band.popularity}</a>
+                    {props.band.name} 
+                    <a href="#" className="badge badge-dark"> {props.band.popularity}</a>
                 </h5>
                 <p className="card-text">{props.band.genres.join(', ')}</p>
                 <a href="#" className="btn btn-primary">Albums</a>
