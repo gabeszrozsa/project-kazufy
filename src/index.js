@@ -12,13 +12,27 @@ import Bands from './components/Bands';
 import ArtistHeader from './components/ArtistHeader';
 import ArtistPopularAlbum from './components/ArtistPopularAlbum';
 
-const SearchPage = () => {
-  return (
-    <div>
-      <Search/>
-      <Bands/>
-    </div>
-  )
+class SearchPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { bands: [] };
+    this.searchArtist = this.searchArtist.bind(this);
+  }
+
+  searchArtist(value) {
+    this.setState({ bands: value });
+  }
+
+  render() {
+    const { bands } = this.state;
+
+    return (
+      <div>
+        <Search searchArtist={this.searchArtist} />
+        <Bands bands={bands}/>
+      </div>
+    )
+  }
 }
 
 const ArtistPage = () => {

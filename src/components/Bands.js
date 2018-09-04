@@ -1,51 +1,43 @@
 import React from 'react';
 
-const Bands = () => {
+const BandItem = (props) => {
+  console.log(props.band);
+  const imgUrl = props.band.images.length > 0 ? props.band.images[0].url : false;
+  const imgComp = (imgUrl) ? <img className="card-img-top" src={imgUrl} alt="Card image cap"/> : false;
+
+  return (
+    <div className="col">
+        <div className="card">
+          {imgComp}
+            <div className="card-body">
+                <h5 className="card-title">
+                    {props.band.name}
+                    <a href="#" className="badge badge-dark">{props.band.popularity}</a>
+                </h5>
+                <p className="card-text">{props.band.genres.join(', ')}</p>
+                <a href="#" className="btn btn-primary">Albums</a>
+            </div>
+        </div>
+    </div>
+  );
+};
+
+export default class Bands extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const BandList = this.props.bands.map((band, i) =>
+      <BandItem key={i} band={band}/>
+    );
+
     return (
         <div className="container">
             <div className="row">
-                <div className="col">
-                    <div className="card">
-                        <img className="card-img-top" src="artist1.jpg" alt="Card image cap"/>
-                        <div className="card-body">
-                            <h5 className="card-title">
-                                Green Day
-                                <a href="#" className="badge badge-dark">6</a>
-                            </h5>
-                            <p className="card-text">Punk rock</p>
-                            <a href="#" className="btn btn-primary">Albums</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <img className="card-img-top" src="artist2.jpg" alt="Card image cap"/>
-                        <div className="card-body">
-                            <h5 className="card-title">
-                                Linkin Park
-                                <a href="#" className="badge badge-dark">15</a>
-                            </h5>
-                            <p className="card-text">Alternative rock</p>
-                            <a href="#" className="btn btn-primary">Albums</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <img className="card-img-top" src="artist3.jpg" alt="Card image cap"/>
-                        <div className="card-body">
-                            <h5 className="card-title">
-                                Sum 41
-                                <a href="#" className="badge badge-dark">13</a>
-                            </h5>
-                            <p className="card-text">Punk rock</p>
-                            <a href="#" className="btn btn-primary">Albums</a>
-                        </div>
-                    </div>
-                </div>
+                {this.props.bands.length > 0 && BandList}
             </div>
         </div>
     )
+  }
 }
-
-export default Bands;

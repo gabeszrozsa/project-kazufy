@@ -4,7 +4,9 @@ import SpotifyAPI from '../api/spotifyAPI';
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = {
+      value: ''
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -16,7 +18,7 @@ export default class Search extends React.Component {
   handleClick(event) {
     event.preventDefault();
     SpotifyAPI.search(this.state.value)
-      .then(data => console.log(data.artists))
+      .then(data => this.props.searchArtist(data.artists.items))
   }
 
   render() {
