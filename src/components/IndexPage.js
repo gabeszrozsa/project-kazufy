@@ -1,8 +1,6 @@
 import React from 'react';
 import SpotifyService from '../api/spotifyService';
 
-const DEV_MODE = false;
-
 export default class IndexPage extends React.Component {
   constructor(props) {
     super(props);
