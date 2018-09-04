@@ -47,12 +47,14 @@ const ArtistPage = () => {
 
 class App extends React.Component {
   render() {
+    const defaultPage = (DEV_MODE && !SPOTIFY_TOKEN) ? IndexPage : SearchPage;
+
     return (
       <Router>
         <div>
           <Nav/>
           <Switch>
-            <Route path="/" exact component={IndexPage} />
+            <Route path="/" exact component={defaultPage} />
             <Route path="/search" exact component={SearchPage} />
             <Route path="/artist" component={ArtistPage} />
           </Switch>

@@ -4,6 +4,10 @@ class SpotifyService {
   constructor() {
     this.client_id = CLIENT_ID;
     this.redirect_uri = REDIRECT_URI;
+
+    if (DEV_MODE && SPOTIFY_TOKEN) {
+      this.token = SPOTIFY_TOKEN;
+    }
   }
 
   shouldInit() {

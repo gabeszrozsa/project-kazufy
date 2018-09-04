@@ -3,6 +3,8 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const CONSTANTS = require('./constants.js');
+
 module.exports = function(env, argv) {
   return {
     entry: [
@@ -45,7 +47,8 @@ module.exports = function(env, argv) {
         filename: 'index.html'
       }),
       new webpack.DefinePlugin({
-        DEV_MODE: argv.mode === 'development'
+        DEV_MODE: argv.mode === 'development',
+        SPOTIFY_TOKEN: JSON.stringify(CONSTANTS.TOKEN)
       })
     ],
     devServer: {
