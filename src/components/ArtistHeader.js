@@ -1,8 +1,17 @@
 import React from 'react';
+import SpotifyAPI from "../api/spotifyAPI";
 
 export default class ArtistHeader extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {artistId:'0OdUWJ0sBjDrqHygGUXeCF', name:'', popularity: '', followers: '', imageUrl: ''};
+        SpotifyAPI.getArtist(this.state.artistId)
+            .then(data => {
+                console.log(data)
+                this.setState({name: data.name, popularity: data.popularity, followers: data.followers.total,
+                    imageUrl: data.images[2].url});
+            })
     }
 
     render(){
@@ -12,12 +21,12 @@ export default class ArtistHeader extends React.Component {
         return (
             <div className="jumbotron jumbotron-fluid">
                 <div className="container">
-                    <img src="bandofhorses.jpg" className="rounded float-right" alt="Band of Horses"/>
+                    <img src={this.state.imageUrl} className="rounded float-right" alt={this.state.name}/>
                     <h1 className="display-4">
-                        Band of Horses
-                        <span className="badge badge-secondary">59</span>
+                        {this.state.name}
+                        <span className="badge badge-secondary">{this.state.popularity}</span>
                     </h1>
-                    <p className="lead">Followers: 30509</p>
+                    <p className="lead">Followers: {this.state.followers}</p>
                 </div>
 
                 <div className="row margin1" style={style}>

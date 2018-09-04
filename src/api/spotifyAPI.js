@@ -5,6 +5,11 @@ class SpotifyAPI {
     const url = `https://api.spotify.com/v1/search?q=${name}&type=artist&limit=5`;
     return SpotifyService.get(url);
   }
+
+  getArtist(id){
+    const url = `https://api.spotify.com/v1/artists/${id}`;
+    return SpotifyService.get(url);
+  }
 }
 
 const instance = new SpotifyAPI();
