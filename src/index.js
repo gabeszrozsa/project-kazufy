@@ -35,10 +35,10 @@ class SearchPage extends React.Component {
   }
 }
 
-const ArtistPage = () => {
+const ArtistPage = ({ match }) => {
    return (
      <div>
-       <ArtistHeader/>
+       <ArtistHeader artistId={match.params.id}/>
        <ArtistPopularAlbum/>
      </div>
    )
@@ -56,7 +56,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={defaultPage} />
             <Route path="/search" exact component={SearchPage} />
-            <Route path="/artist" component={ArtistPage} />
+            <Route path="/artist/:id" component={ArtistPage} />
           </Switch>
         </div>
       </Router>

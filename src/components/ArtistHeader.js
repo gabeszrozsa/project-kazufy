@@ -5,13 +5,16 @@ export default class ArtistHeader extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {artistId:'0OdUWJ0sBjDrqHygGUXeCF', name:'', popularity: '', followers: '', imageUrl: ''};
-        SpotifyAPI.getArtist(this.state.artistId)
-            .then(data => {
-                console.log(data)
-                this.setState({name: data.name, popularity: data.popularity, followers: data.followers.total,
-                    imageUrl: data.images[2].url});
-            })
+        this.state = {artistId:this.props.artistId, name:'', popularity: '', followers: '', imageUrl: ''};
+    }
+
+    componentDidMount() {
+      SpotifyAPI.getArtist(this.state.artistId)
+          .then(data => {
+              console.log(data)
+              this.setState({name: data.name, popularity: data.popularity, followers: data.followers.total,
+                  imageUrl: data.images[2].url});
+          })
     }
 
     render(){
