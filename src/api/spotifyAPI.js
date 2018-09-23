@@ -10,6 +10,11 @@ class SpotifyAPI {
     const url = `https://api.spotify.com/v1/artists/${id}`;
     return SpotifyService.get(url);
   }
+
+  getArtistTopTracks(id){
+    const url = `https://api.spotify.com/v1/artists/${id}/top-tracks?country=HU`
+      return SpotifyService.get(url);
+  }
 }
 
 const instance = new SpotifyAPI();
