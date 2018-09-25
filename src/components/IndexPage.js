@@ -30,16 +30,22 @@ export default class IndexPage extends React.Component {
   }
 
   render () {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>DEV MODE!</h1>
-        <label>
-          Spotify Bearer token:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-        {this.state.tokenSet && <h2 style={{color: 'green'}}>Token has been set!</h2>}
-      </form>
-    );
+    if (DEV_MODE) {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <h1>DEV MODE!</h1>
+          <label>
+            Spotify Bearer token:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+          {this.state.tokenSet && <h2 style={{color: 'green'}}>Token has been set!</h2>}
+        </form>
+      );
+    } else {
+      return (
+        <p>Loading...</p>
+      );
+    }
   }
 }

@@ -8,7 +8,6 @@ import Nav from './components/Nav';
 import Search from './components/Search';
 import IndexPage from './components/IndexPage';
 import Bands from './components/Bands';
-
 import ArtistHeader from './components/ArtistHeader';
 import ArtistPopularAlbum from './components/ArtistPopularAlbum';
 
@@ -47,7 +46,7 @@ const ArtistPage = ({ match }) => {
 
 class App extends React.Component {
   render() {
-    const defaultPage = (DEV_MODE && !SPOTIFY_TOKEN) ? IndexPage : SearchPage;
+    const defaultPage = (!SPOTIFY_TOKEN) ? IndexPage : SearchPage;
 
     return (
       <Router>

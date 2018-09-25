@@ -48,7 +48,7 @@ module.exports = function(env, argv) {
       }),
       new webpack.DefinePlugin({
         DEV_MODE: argv.mode === 'development',
-        SPOTIFY_TOKEN: JSON.stringify(CONSTANTS.TOKEN)
+        SPOTIFY_TOKEN: (argv.mode !== 'development') ? null : JSON.stringify(CONSTANTS.TOKEN)
       })
     ],
     devServer: {
