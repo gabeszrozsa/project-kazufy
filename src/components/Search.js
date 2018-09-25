@@ -18,7 +18,13 @@ export default class Search extends React.Component {
   handleClick(event) {
     event.preventDefault();
     SpotifyAPI.search(this.state.value)
-      .then(data => this.props.searchArtist(data.artists.items))
+      .then(data => {
+        if (!data.error) {
+          this.props.searchArtist(data.artists.items);
+        } else {
+          console.error('Search -> handleClick:', data.error);
+        }
+      })
   }
 
   render() {

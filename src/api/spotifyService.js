@@ -58,7 +58,8 @@ class SpotifyService {
         "Authorization": `Bearer ${this.token}`
       },
     })
-    .then(response => response.json());
+    .then(response => response.json())
+    .catch(error => console.error('SpotifyService -> get', error));
   }
 }
 

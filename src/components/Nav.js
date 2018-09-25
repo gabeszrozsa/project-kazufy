@@ -14,12 +14,6 @@ const Nav = () => {
           <li className="nav-item active">
             <Link className="nav-link" to="/search">Search</Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/artist">Artists</Link>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="albums.html">Albums</a>
-          </li>
         </ul>
       </div>
     </nav>
