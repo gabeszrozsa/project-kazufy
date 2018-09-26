@@ -10,40 +10,48 @@ export default class ArtistHeader extends React.Component {
             artist:
                 {
                     artistId: this.props.artistId,
-                    name:'',
+                    name: '',
                     popularity: '',
                     followers: '',
                     imageUrl: ''
                 },
-            topTracks:[]
+            topTracks: []
         };
     }
 
     componentDidMount() {
+        this.setArtist();
+        this.setTopTracks();
+    }
+
+    setArtist(){
         SpotifyAPI.getArtist(this.state.artist.artistId)
             .then(data => {
                 if (!data.error) {
-                  this.setState({
-                    artist:
-                    {
-                      name: data.name,
-                      popularity: data.popularity,
-                      followers: data.followers.total,
-                      imageUrl: data.images[2].url
-                    }
-                  });
+                    this.setState({
+                        artist:
+                            {
+                                name: data.name,
+                                popularity: data.popularity,
+                                followers: data.followers.total,
+                                imageUrl: data.images[2].url
+                            }
+                    });
                 } else {
-                  console.error('ArtistHeader -> getArtist:', data.error);
+                    console.error('ArtistHeader -> getArtist:', data.error);
                 }
             });
+    }
+
+    setTopTracks(){
         SpotifyAPI.getArtistTopTracks(this.state.artist.artistId)
-            .then(data =>{
+            .then(data => {
                 if (!data.error) {
-                  this.setState({
-                    topTracks: data.tracks
-                  });
+                    this.setState({
+                        topTracks: data.tracks
+                    });
                 } else {
-                  console.error('ArtistHeader -> getArtistTopTracks:', data.error);
+                    console.error('ArtistHeader -> getArtistTopTracks:', data.error);
                 }
             });
     }

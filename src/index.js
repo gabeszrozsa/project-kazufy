@@ -38,7 +38,7 @@ const ArtistPage = ({ match }) => {
    return (
      <div>
        <ArtistHeader artistId={match.params.id}/>
-       <ArtistPopularAlbum/>
+       <ArtistPopularAlbum artistId={match.params.id}/>
      </div>
    )
 }
